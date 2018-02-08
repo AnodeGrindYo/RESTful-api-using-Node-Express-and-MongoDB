@@ -9,7 +9,7 @@
   "dependencies": {
     "express": "*",
     "body-parser": "*",
-    "moongoose": "*"
+    "mongoose": "*"
   },
   "repository": {
     "type": "git",
