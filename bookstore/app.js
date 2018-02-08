@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port = 3000;
 
+app.use(bodyParser.json());
+
 Genre = require('./models/genres');
 Book = require('./models/books');
 
@@ -30,7 +32,17 @@ app.get('/api/books', function(req, res){
 		if(err){
 			throw err;
 		}
-		res.json(books); // affiche la liste des genres
+		res.json(books); // affiche la liste des livres
+	});
+});
+
+app.post('/api/genres', function(req, res){
+	var genre = req.body;
+	Genre.addGenre(genre, function(err, genre){
+		if(err){
+			throw err;
+		}
+		res.json(genre); // 
 	});
 });
 
